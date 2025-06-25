@@ -1,5 +1,7 @@
 import { Tajawal } from "next/font/google";
 import "./globals.css";
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const tajawal = Tajawal({
   variable: "--font-tajawal",
@@ -15,7 +17,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar">
-      <body dir="rtl" className={`${tajawal.className} antialiased`}>{children}</body>
+      <body dir="rtl" className={`${tajawal.className} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
