@@ -57,10 +57,10 @@ function CategoriesSection() {
         </Swiper>
       </div>
       <div className="flex justify-center gap-5 mb-7 mx-auto">
-        <button ref={prevRef} className="">
+        <button ref={prevRef}>
           <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:next-filled"} />
         </button>
-        <button ref={nextRef} className="">
+        <button ref={nextRef}>
           <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:previous-filled"} />
         </button>
       </div>

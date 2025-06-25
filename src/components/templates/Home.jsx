@@ -1,7 +1,7 @@
 import Hero from "../molecules/Hero";
 import CategoriesSection from "../organisms/CategoriesSection";
 import Navbar from "../organisms/Navbar";
-import Podcasts from "../organisms/Podcasts";
+import PodcastsSection from "../organisms/PodcastsSection";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <CategoriesSection />
-      <Podcasts />
+      <PodcastsSection />
     </>
   )
 }
