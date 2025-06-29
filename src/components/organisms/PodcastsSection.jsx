@@ -4,12 +4,24 @@ import HeaderSection from "../molecules/HeaderSection"
 import PodcastCard from "../molecules/PodcastCard"
 import Thumbnail from "@/assets/thumbnail_podcast.jpg"
 import { Navigation } from "swiper/modules";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 
 function Podcasts() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+
+    const [swiperInstance, setSwiperInstance] = useState(null);
+
+    useEffect(() => {
+        if (swiperInstance && prevRef.current && nextRef.current) {
+            swiperInstance.params.navigation.prevEl = prevRef.current;
+            swiperInstance.params.navigation.nextEl = nextRef.current;
+            swiperInstance.navigation.destroy();
+            swiperInstance.navigation.init();
+            swiperInstance.navigation.update();
+        }
+    }, [swiperInstance]);
 
     return (
         <div className="mb-10 mt-26">
@@ -21,46 +33,28 @@ function Podcasts() {
                     grabCursor={true}
                     spaceBetween={25}
                     slidesPerView={4}
-                    breakpoints={{
-                        320: {
-                            slidesPerView: 1,
-                        },
-                        640: {
-                            slidesPerView: 2,
-                        },
-                        1024: {
-                            slidesPerView: 2,
-                        },
-                    }}
-                    navigation={{
-                        prevEl: prevRef.current,
-                        nextEl: nextRef.current,
-                    }}
-                    onBeforeInit={(swiper) => {
-                        swiper.params.navigation.prevEl = prevRef.current;
-                        swiper.params.navigation.nextEl = nextRef.current;
-                    }}
-
                     loop
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    breakpoints={{
+                        320: { slidesPerView: 1 },
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 2 },
+                    }}
+                    onSwiper={setSwiperInstance}
                 >
                     {
-                        Array.from({ length: 12 }).map(() => {
-                            return (
-                                <SwiperSlide>
-                                    <PodcastCard image={Thumbnail} href={"/podcasts/id"} />
-                                </SwiperSlide>
-                            )
-                        })
+                        Array.from({ length: 12 }).map((_, idx) => (
+                            <SwiperSlide key={idx}>
+                                <PodcastCard image={Thumbnail} href={"/podcasts/id"} />
+                            </SwiperSlide>
+                        ))
                     }
                 </Swiper>
             </div>
             <div className="flex justify-center gap-5 mb-7 mx-auto">
-                <button ref={prevRef}>
+                <button ref={nextRef}>
                     <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:next-filled"} />
                 </button>
-                <button ref={nextRef}>
+                <button ref={prevRef}>
                     <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:previous-filled"} />
                 </button>
             </div>
@@ -68,4 +62,4 @@ function Podcasts() {
     )
 }
 
-export default Podcasts
+export default Podcasts;

@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --main: #2d8771;
+  --main-100: #32C4A3;
   --dark: #1e1e1e;
   --light: #F6F4F4;
   --light-200: #B7BCB5;
@@ -15,6 +16,7 @@
   --color-main: var(--main);
   --color-dark: var(--dark);
   --color-light: var(--light);
+  --color-main-100: var(--main-100)
   --color-light-200: var(--light-200);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -25,6 +27,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --main: #2d8771;
+    --main-100: #32C4A3;
     --dark: #1e1e1e;
     --light: #F6F4F4;
     --light-200: #B7BCB5;
