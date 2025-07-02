@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import HeaderSection from "../molecules/HeaderSection"
 import PodcastCard from "../molecules/PodcastCard"
 import Thumbnail from "@/assets/thumbnail_podcast.jpg"
+import ThumbnailFemale from "@/assets/female.jpg"
 import { Navigation } from "swiper/modules";
 import { useRef, useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
@@ -44,7 +45,7 @@ function Podcasts() {
                     {
                         Array.from({ length: 12 }).map((_, idx) => (
                             <SwiperSlide key={idx}>
-                                <PodcastCard image={Thumbnail} href={"/podcasts/id"} />
+                                <PodcastCard image={ idx % 2 == 0 ? Thumbnail : ThumbnailFemale} href={"/podcasts/id"} />
                             </SwiperSlide>
                         ))
                     }
