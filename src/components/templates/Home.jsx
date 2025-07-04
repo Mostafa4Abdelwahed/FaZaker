@@ -12,7 +12,6 @@ export default function Home() {
       <PodcastsSection title="عن الدين" />
       <PodcastsSection title="دروس دينية" />
       <PodcastsSection title="المشاهدة أكثر" />
-      {/* <FloatingAlertData /> */}
     </>
   )
 }

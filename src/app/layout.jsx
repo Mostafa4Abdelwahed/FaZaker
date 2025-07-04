@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from "@/components/organisms/Footer";
 import Navbar from "@/components/organisms/Navbar";
+import FloatingAlertData from "@/components/organisms/FloatingAlertData";
 
 const tajawal = Tajawal({
   variable: "--font-tajawal",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <div className="min-h-screen">{children}</div>
         <Footer />
+        <FloatingAlertData />
       </body>
     </html>
   );
