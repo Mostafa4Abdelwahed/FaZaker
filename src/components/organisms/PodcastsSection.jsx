@@ -8,7 +8,7 @@ import { Navigation } from "swiper/modules";
 import { useRef, useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 
-function Podcasts() {
+function Podcasts({ title="" }) {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
@@ -25,8 +25,8 @@ function Podcasts() {
     }, [swiperInstance]);
 
     return (
-        <div className="mb-10 mt-26">
-            <HeaderSection title="عن الدين" href="/podcasts" />
+        <div className="mb-10 mt-14">
+            <HeaderSection title={title} href="/podcasts" />
             <div className="max-w-screen-2xl mx-auto px-4 sm:pr-6 lg:pr-8 lg:pl-0 2xl:px-8 my-8">
                 <Swiper
                     modules={[Navigation]}
@@ -45,7 +45,7 @@ function Podcasts() {
                     {
                         Array.from({ length: 12 }).map((_, idx) => (
                             <SwiperSlide key={idx}>
-                                <PodcastCard image={ idx % 2 == 0 ? Thumbnail : ThumbnailFemale} href={"/podcasts/id"} />
+                                <PodcastCard image={Thumbnail} href={"/podcasts/id"} />
                             </SwiperSlide>
                         ))
                     }
