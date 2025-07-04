@@ -9,7 +9,7 @@ export const NavLinks = [
     name: "أوقات الصلاة",
     icon: "solar:watch-round-linear",
     icon_bold: "solar:watch-round-bold",
-    href: "/prayers",
+    href: "/prayer-times",
   },
   {
     name: "عن الدين",

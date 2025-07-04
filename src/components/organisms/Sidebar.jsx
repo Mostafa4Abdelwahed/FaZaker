@@ -23,7 +23,7 @@ function Sidebar({ isOpen, setIsOpen }) {
                 <ul className="px-2.5 space-y-2 mt-3.5">
                     {
                         NavLinks.map((link, index) => (
-                            <li className="flex items-center gap-2 text-lg p-2 rounded">
+                            <li key={index} className="flex items-center gap-2 text-lg p-2 rounded">
                                 <Icon icon={link.icon} />
                                 {link.name}
                             </li>
