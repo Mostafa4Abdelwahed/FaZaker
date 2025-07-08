@@ -1,5 +1,5 @@
-import PrayerTimes from "@/components/templates/PrayerTimes";
+import PrayerTimesTemplate from "@/components/templates/PrayerTimes";
 
-export default function page() {
-    return <PrayerTimes />
+export default function PrayerTimes() {
+    return <PrayerTimesTemplate />
 }
