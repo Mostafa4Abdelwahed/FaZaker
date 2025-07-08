@@ -53,10 +53,10 @@ function Podcasts({ title="" }) {
             </div>
             <div className="flex justify-center gap-5 mb-7 mx-auto">
                 <button ref={nextRef}>
-                    <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:next-filled"} />
+                    <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:next-filled"} />
                 </button>
                 <button ref={prevRef}>
-                    <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:previous-filled"} />
+                    <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:previous-filled"} />
                 </button>
             </div>
         </div>
