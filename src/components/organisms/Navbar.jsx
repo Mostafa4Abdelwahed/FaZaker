@@ -23,6 +23,8 @@ function Navbar() {
                     </button>
                 </div>
             </Container>
+            <div className="bg-main-100/10 blur-3xl w-[250px] -z-10 h-[250px] rounded-full absolute top-[70px] left-5" />
+            <div className="bg-main-100/10 blur-3xl w-[250px] -z-10 h-[250px] rounded-full absolute hidden md:block top-[70px] right-5" />
         </>
     )
 }

@@ -1,7 +1,5 @@
-import FloatingAlert from "../molecules/FloatingAlert";
 import Hero from "../organisms/HeroSection";
 import CategoriesSection from "../organisms/CategoriesSection";
-import FloatingAlertData from "../organisms/FloatingAlertData";
 import PodcastsSection from "../organisms/PodcastsSection";
 
 export default function Home() {

@@ -9,6 +9,7 @@ import Thumbnail from "@/assets/thumbnail_category.jpg"
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Container from '../atoms/Container';
 
 export default function CategoriesSection() {
   const prevRef = useRef(null);
@@ -31,17 +32,17 @@ export default function CategoriesSection() {
   return (
     <div>
       <HeaderSection title="فذكر" href="/categories" />
-      <div className="max-w-screen-2xl mx-auto px-4 sm:pr-6 lg:pr-8 lg:pl-0 2xl:px-8 my-8">
+      <Container className="my-8">
         <Swiper
           modules={[Navigation]}
           loop
-          spaceBetween={30}
+          spaceBetween={27}
           slidesPerView={4}
-          centeredSlides={true}
-          grabCursor={true}
+          // centeredSlides={true}
+          // grabCursor={true}
           breakpoints={{
             320: { slidesPerView: 1 },
-            640: { slidesPerView: 3 },
+            720: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
           }}
           onSwiper={setSwiperInstance}
@@ -56,13 +57,13 @@ export default function CategoriesSection() {
         {/* الأزرار تحت */}
         <div className="flex justify-center gap-5 mt-5">
           <button ref={nextRef}>
-            <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:next-filled"} />
+            <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:next-filled"} />
           </button>
           <button ref={prevRef}>
-            <Icon className='text-4xl cursor-pointer text-main' icon={"carbon:previous-filled"} />
+            <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:previous-filled"} />
           </button>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }
