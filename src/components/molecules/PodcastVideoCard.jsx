@@ -2,10 +2,10 @@ import { Icon } from "@iconify/react"
 import Image from "next/image"
 import Link from "next/link"
 
-function PodcastVideoCard({ image, href, category = "", title = "" }) {
+function PodcastVideoCard({ image, href, category = "", title = "", className="" }) {
     return (
-        <div>
-            <div className="relative rounded-3xl overflow-hidden w-full h-[250px]">
+        <>
+            <div className={`relative rounded-3xl overflow-hidden w-full h-[250px] ${className}`}>
                 <div>
                     <Image src={image} className="absolute inset-0 w-full h-full object-cover" draggable={false} alt="Thumbnail" />
                     <div className="absolute w-full h-full bg-gradient-to-t from-black to-transparent z-50">
@@ -20,7 +20,7 @@ function PodcastVideoCard({ image, href, category = "", title = "" }) {
                 </div>
             </div>
             <Link href={href} className="text-xl mt-2 font-medium text-center mx-auto block">{category} - <span className="text-main">{title}</span></Link>
-        </div>
+        </>
     )
 }
 

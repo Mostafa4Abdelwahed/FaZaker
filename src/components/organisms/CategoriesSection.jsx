@@ -32,7 +32,7 @@ export default function CategoriesSection() {
   return (
     <div>
       <HeaderSection title="فذكر" href="/categories" />
-      <Container className="my-8">
+      <div className="my-8">
         <Swiper
           modules={[Navigation]}
           loop
@@ -63,7 +63,7 @@ export default function CategoriesSection() {
             <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:previous-filled"} />
           </button>
         </div>
-      </Container>
+      </div>
     </div>
   )
 }

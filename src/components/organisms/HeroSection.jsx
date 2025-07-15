@@ -1,9 +1,8 @@
-import Container from "../atoms/Container"
 import Logo from "../atoms/Logo"
 
 function Hero() {
     return (
-        <Container className="flex flex-col items-center justify-center py-20">
+        <div className="flex flex-col items-center justify-center py-20">
             <div className="hidden md:block">
                 <div className="flex items-center">
                     <Logo />
@@ -18,7 +17,7 @@ function Hero() {
                     راسخ، وعبادة صحيحة، وقلبٌ حي باللة ☺️
                 </h1>
             </div>
-        </Container>
+        </div>
     )
 }
 

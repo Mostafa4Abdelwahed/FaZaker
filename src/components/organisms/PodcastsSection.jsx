@@ -28,7 +28,7 @@ function Podcasts({ title="" }) {
     return (
         <div className="mb-10 mt-14">
             <HeaderSection title={title} href="/podcasts" />
-            <Container className="my-8">
+            <div className="my-8">
                 <Swiper
                     modules={[Navigation]}
                     spaceBetween={27}
@@ -49,7 +49,7 @@ function Podcasts({ title="" }) {
                         ))
                     }
                 </Swiper>
-            </Container>
+            </div>
             <div className="flex justify-center gap-5 mb-7 mx-auto">
                 <button ref={nextRef}>
                     <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:next-filled"} />
