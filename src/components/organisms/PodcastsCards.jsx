@@ -9,7 +9,7 @@ function PodcastsCards() {
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-7 mb-10">
                 {
                     Array.from({ length: 6 }).map((_, indx) => (
-                        <PodcastVideoCard key={indx} image={Thumbnail} href={"/podcasts/id"} category="ايه المشكلة" title="لو مبتصليش؟" />
+                        <PodcastVideoCard key={indx} image={Thumbnail} href={"/about-religion/id"} category="ايه المشكلة" title="لو مبتصليش؟" />
                     ))
                 }
             </div>
