@@ -10,6 +10,7 @@ import Thumbnail from "@/assets/thumbnail_category.jpg"
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Container from '../atoms/Container';
+import categories from '@/lib/categories';
 
 export default function CategoriesSection() {
   const prevRef = useRef(null);
@@ -47,19 +48,19 @@ export default function CategoriesSection() {
           }}
           onSwiper={setSwiperInstance}
         >
-          {Array.from({ length: 12 }).map((_, idx) => (
+          {categories.slice(0, 8).map((category, idx) => (
             <SwiperSlide key={idx}>
-              <CategoryCard name="القران الكريم" image={Thumbnail} href="/quran" />
+              <CategoryCard name={category.name} image={category.image} href={category.href} />
             </SwiperSlide>
           ))}
         </Swiper>
 
         {/* الأزرار تحت */}
         <div className="flex justify-center gap-5 mt-5">
-          <button ref={nextRef}>
+          <button ref={prevRef}>
             <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:next-filled"} />
           </button>
-          <button ref={prevRef}>
+          <button ref={nextRef}>
             <Icon className='text-4xl cursor-pointer text-main hover:text-main-100 transition-all' icon={"carbon:previous-filled"} />
           </button>
         </div>
