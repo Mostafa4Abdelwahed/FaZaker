@@ -16,10 +16,10 @@ function Accordion({ title = "", children, className="" }) {
                 {
                     active &&
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={`bg-gray-50 text-main-100 p-2.5 font-semibold text-center text-xl shadow rounded-xl mt-3 ${className}`}>
+                        initial={{ opacity: 0, height: 0, marginTop: 0, padding: 0 }}
+                        animate={{ opacity: 1, height: "auto", marginTop: 12, padding: 10 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0, padding: 0 }}
+                        className={`bg-gray-50 text-main-100 font-semibold text-center text-xl shadow rounded-xl mt-3 ${className}`}>
                         {children}
                     </motion.div>
                 }
