@@ -17,6 +17,12 @@ export const NavLinks = [
     icon_bold: "solar:clapperboard-text-bold",
     href: "/about-religion",
   },
+    {
+    name: "القرأن الكريم",
+    icon: "solar:notebook-bookmark-linear",
+    icon_bold: "solar:notebook-bookmark-bold",
+    href: "/quran",
+  },
   {
     name: "المفضلة",
     icon: "solar:heart-angle-linear",

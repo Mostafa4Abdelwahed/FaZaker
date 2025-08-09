@@ -2,7 +2,7 @@ import PrayerCard from "../molecules/PrayerCard"
 
 function PrayerCardsSection() {
   return (
-    <div className="flex flex-col items-center justify-center space-y-5 my-8">
+    <div className="flex flex-col items-center justify-center space-y-5 my-8 w-full md:w-md mx-auto">
       <PrayerCard isActive={false} name="الفجر" icon="solar:moon-sleep-linear" time="٤:٢٨ ص" />
       <PrayerCard isActive={false} name="الشروق" icon="solar:sun-fog-linear" time="٥:٥٥ ص" />
       <PrayerCard isActive={false} name="الظهر" icon="si:sun-duotone" time="١٢:٠٢ م" />
