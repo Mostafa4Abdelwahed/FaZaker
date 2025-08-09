@@ -1,21 +1,22 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import IconWrapper from "../atoms/IconWrapper";
+import Button from "../atoms/Button";
 
 export default function SidebarLink({ href, icon, label }) {
   const pathname = usePathname();
-  const isActive = pathname.startsWith(href);
+  const isActive = pathname === href;
 
   return (
-    <Link
-      href={href}
-      className={`flex items-center gap-3 px-4 py-2 rounded-lg ${
-        isActive ? "bg-blue-500 text-white" : "text-gray-700 hover:bg-gray-100"
-      }`}
-    >
-      <IconWrapper name={icon} className="text-xl" />
-      {label}
+    <Link href={href}>
+      <Button
+        type={isActive ? "" : "outline"}
+        className="flex items-center gap-3 w-full"
+      >
+        <IconWrapper name={icon} className="text-xl" />
+        {label}
+      </Button>
     </Link>
   );
 }

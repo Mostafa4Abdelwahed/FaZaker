@@ -1,22 +1,15 @@
 import cloudinary from "@/lib/cloudinary";
 import connectDB from "@/lib/connectDB";
-import Podcast from "@/models/Podcast.model";
-import { NextResponse } from "next/server";
+import Charity from "@/models/Charity.model";
 import { Readable } from "stream";
 
 export async function GET() {
-  await connectDB();
   try {
-    const podcasts = await Podcast.find()
-      .populate("category", "name")
-      .sort({ createdAt: -1 });
-
-    return NextResponse.json(
-      { success: true, data: podcasts },
-      { status: 200 }
-    );
+    await connectDB();
+    const charities = await Charity.find().sort({ createdAt: -1 });
+    return Response.json({ success: true, data: charities });
   } catch (error) {
-    return NextResponse.json(
+    return Response.json(
       { success: false, message: error.message },
       { status: 500 }
     );
@@ -24,15 +17,13 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  await connectDB();
   try {
+    await connectDB();
     const formData = await req.formData();
-    const imageFile = formData.get("image");
-    const title = formData.get("title");
-    const category = formData.get("category");
-    const video = formData.get("video");
+    const number = formData.get("number");
+    const imageFile = formData.get("logo");
 
-    if (!title || !imageFile || !category || !video) {
+    if ((!number, !imageFile)) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
@@ -43,7 +34,7 @@ export async function POST(req) {
 
     const image = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
-        { folder: "Podcasts-Images" },
+        { folder: "Chairty-Images" },
         (error, result) => {
           if (error) reject(error);
           else resolve(result);
@@ -56,11 +47,10 @@ export async function POST(req) {
       readableStream.pipe(uploadStream);
     });
 
-    const podcast = await Podcast.create({ title, image: image.secure_url, category, video });
-
-    return NextResponse.json({ success: true, data: podcast }, { status: 201 });
+    const charity = await Charity.create({ number, logo: image.secure_url });
+    return Response.json({ success: true, data: charity }, { status: 201 });
   } catch (error) {
-    return NextResponse.json(
+    return Response.json(
       { success: false, message: error.message },
       { status: 500 }
     );

@@ -1,9 +1,8 @@
-import React from 'react'
 
 export default function page() {
   return (
-    <div>
-      Dash
+    <div className="text-white">
+      Dashboard
     </div>
   )
 }
