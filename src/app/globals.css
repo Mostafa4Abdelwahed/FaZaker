@@ -29,3 +29,7 @@ body {
   overflow-x: hidden !important;
   @apply bg-light
 }
+
+.font-scheherazade{
+  font-family: "Scheherazade New" !important;
+}

@@ -44,7 +44,7 @@ function Podcasts({ title="" }) {
                     {
                         Array.from({ length: 12 }).map((_, idx) => (
                             <SwiperSlide key={idx}>
-                                <PodcastCard image={Thumbnail} href={"/podcasts/id"} />
+                                <PodcastCard image={Thumbnail} href={"/about-religion/id"} />
                             </SwiperSlide>
                         ))
                     }
