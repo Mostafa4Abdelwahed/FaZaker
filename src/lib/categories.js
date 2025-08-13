@@ -15,7 +15,7 @@ const categories = [
     {
         name: "القرأن الكريم",
         image: QuranKarim,
-        href: "/categories/quran",
+        href: "/quran",
     },
     {
         name: "الأدعية والأذكار",
@@ -40,7 +40,7 @@ const categories = [
     {
         name: "أوقات الصلاة",
         image: AwkatElsalah,
-        href: "/categories/sadaka",
+        href: "/prayer-times",
     },
     {
         name: "مراجعة النفس",

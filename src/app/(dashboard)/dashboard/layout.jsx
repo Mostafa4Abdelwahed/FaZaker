@@ -7,16 +7,12 @@ export const metadata = {
 
 export default function DashboardRootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <div className="flex min-h-screen bg-dark/90">
-          <Sidebar />
-          <div className="flex-1 flex flex-col">
-            <Header title={"Admin Panel"} />
-            <main className="p-6 flex-1">{children}</main>
-          </div>
-        </div>
-      </body>
-    </html>
+    <div className="flex min-h-screen bg-dark/90">
+      <Sidebar />
+      <div className="flex-1 flex flex-col">
+        <Header title={"Admin Panel"} />
+        <main className="p-6 flex-1">{children}</main>
+      </div>
+    </div>
   );
 }

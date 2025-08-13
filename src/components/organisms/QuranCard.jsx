@@ -40,7 +40,7 @@ function QuranCard({ verse }) {
           >
             <Link className="max-w-sm w-full" href={`/quran/${verse.id}/read`}><Button className="w-full">القرأءة</Button></Link>
             <Link className="max-w-sm w-full" href={`/quran/${verse.id}/listen`}><Button type="outline" className="w-full">الأستماع</Button></Link>
-            <Button className="max-w-sm w-full border-0" type="outline">التفسير</Button>
+            <Link className="max-w-sm w-full" href={`/quran/${verse.id}/tafsir`}><Button className="max-w-sm w-full border-0" type="outline">التفسير</Button></Link>
           </motion.div>
         )}
       </AnimatePresence>
