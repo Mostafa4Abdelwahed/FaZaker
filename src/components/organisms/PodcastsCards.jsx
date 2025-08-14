@@ -1,20 +1,16 @@
-import Button from "../atoms/Button"
 import PodcastVideoCard from "../molecules/PodcastVideoCard"
-import Thumbnail from "@/assets/thumbnail_podcast.jpg"
 
-
-function PodcastsCards() {
+function PodcastsCards({ videos, itemsPerPage = 9 }) {
     return (
         <div>
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-7 mb-10">
                 {
-                    Array.from({ length: 6 }).map((_, indx) => (
-                        <PodcastVideoCard key={indx} image={Thumbnail} href={"/about-religion/id"} category="ايه المشكلة" title="لو مبتصليش؟" />
-                    ))
+                    videos.map((video, indx) => {
+                        console.log('thumbnail', video.snippet.resourceId.videoId)
+                        return(
+                        <PodcastVideoCard key={indx} image={video.snippet.thumbnails.high.url} href={`/about-religion/${video.snippet.resourceId.videoId}`} category="ايه المشكلة" title={video.snippet.title} />
+                    )})
                 }
-            </div>
-            <div className="w-full flex items-center justify-center">
-                <Button className="px-16 mx-auto">المزيد</Button>
             </div>
         </div>
     )

@@ -5,11 +5,8 @@ import PodcastTable from "@/components/organisms/PodcastTable";
 
 export default function PodcastsDashboard() {
   const [podcasts, setPodcasts] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [image, setImage] = useState(null);
-  const [video, setVideo] = useState("");
+  const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
 
   const fetchPodcasts = async () => {
@@ -18,25 +15,16 @@ export default function PodcastsDashboard() {
     setPodcasts(data.data);
   };
 
-  const fetchCategories = async () => {
-    const res = await fetch("/api/category");
-    const data = await res.json();
-    setCategories(data.data);
-  };
-
   useEffect(() => {
     fetchPodcasts();
-    fetchCategories();
   }, []);
 
   const handleAddPodcast = async (e) => {
     e.preventDefault();
-    if (!title.trim() || !category.trim()) return;
+    if (!title.trim() || !id.trim()) return;
     const formData = new FormData();
-    formData.append("image", image);
     formData.append("title", title);
-    formData.append("category", category);
-    formData.append("video", video);
+    formData.append("id", id);
 
     setLoading(true);
     await fetch("/api/podcast", {
@@ -45,9 +33,7 @@ export default function PodcastsDashboard() {
     });
 
     setTitle("");
-    setCategory("");
-    setImage("");
-    setVideo("");
+    setId("");
     setLoading(false);
     fetchPodcasts();
   };
@@ -67,13 +53,8 @@ export default function PodcastsDashboard() {
       <PodcastForm
         title={title}
         setTitle={setTitle}
-        category={category}
-        setCategory={setCategory}
-        categories={categories}
-        image={image}
-        video={video}
-        setImage={setImage}
-        setVideo={setVideo}
+        id={id}
+        setId={setId}
         loading={loading}
         onSubmit={handleAddPodcast}
       />

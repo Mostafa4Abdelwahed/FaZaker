@@ -8,7 +8,6 @@ export async function GET() {
   await connectDB();
   try {
     const podcasts = await Podcast.find()
-      .populate("category", "name")
       .sort({ createdAt: -1 });
 
     return NextResponse.json(
@@ -27,36 +26,17 @@ export async function POST(req) {
   await connectDB();
   try {
     const formData = await req.formData();
-    const imageFile = formData.get("image");
     const title = formData.get("title");
-    const category = formData.get("category");
-    const video = formData.get("video");
+    const id = formData.get("id");
 
-    if (!title || !imageFile || !category || !video) {
+    if (!title || !id) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
       );
     }
 
-    const buffer = Buffer.from(await imageFile.arrayBuffer());
-
-    const image = await new Promise((resolve, reject) => {
-      const uploadStream = cloudinary.uploader.upload_stream(
-        { folder: "Podcasts-Images" },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        }
-      );
-
-      const readableStream = new Readable();
-      readableStream.push(buffer);
-      readableStream.push(null);
-      readableStream.pipe(uploadStream);
-    });
-
-    const podcast = await Podcast.create({ title, image: image.secure_url, category, video });
+    const podcast = await Podcast.create({ title, id });
 
     return NextResponse.json({ success: true, data: podcast }, { status: 201 });
   } catch (error) {

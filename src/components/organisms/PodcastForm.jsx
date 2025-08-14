@@ -5,12 +5,8 @@ import Input from "@/components/atoms/Input";
 export default function PodcastForm({
   title,
   setTitle,
-  category,
-  setCategory,
-  categories,
-  video,
-  setImage,
-  setVideo,
+  id,
+  setId,
   loading,
   onSubmit,
 }) {
@@ -22,28 +18,11 @@ export default function PodcastForm({
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className="rounded-xl p-2 bg-dark text-white"
-      >
-        <option value="">Select Category</option>
-        {categories.map((cat) => (
-          <option key={cat._id} value={cat._id}>
-            {cat.name}
-          </option>
-        ))}
-      </select>
-      <Input
-        type="file"
-        placeholder="Image"
-        onChange={(e) => setImage(e.target.files[0])}
-      />
       <Input
         type="text"
         placeholder="Video URL"
-        value={video}
-        onChange={(e) => setVideo(e.target.value)}
+        value={id}
+        onChange={(e) => setId(e.target.value)}
       />
       <Button disabled={loading} ActionType="submit">
         {loading ? "Adding..." : "Add Podcast"}

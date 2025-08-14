@@ -6,7 +6,7 @@ export default function SinglePodcast() {
     return (
         <Container className='py-7'>
             <PodcastVideo />
-            <PodcastsCards />
+            {/* <PodcastsCards /> */}
         </Container>
     )
 }

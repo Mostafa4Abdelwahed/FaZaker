@@ -39,8 +39,6 @@ export default function CategoriesSection() {
           loop
           spaceBetween={27}
           slidesPerView={4}
-          // centeredSlides={true}
-          // grabCursor={true}
           breakpoints={{
             320: { slidesPerView: 1 },
             720: { slidesPerView: 2 },

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(_, { params }) {
   await connectDB();
   try {
-    const podcast = await Podcast.findById(params.id).populate("category", "name");
+    const podcast = await Podcast.findById(params.id)
     if (!podcast) {
       return NextResponse.json({ success: false, message: "Podcast not found" }, { status: 404 });
     }
@@ -18,11 +18,11 @@ export async function GET(_, { params }) {
 export async function PUT(req, { params }) {
   await connectDB();
   try {
-    const { title, image, category, video } = await req.json();
+    const { title, id } = await req.json();
 
     const updated = await Podcast.findByIdAndUpdate(
       params.id,
-      { title, image, category, video },
+      { title, id },
       { new: true, runValidators: true }
     );
 

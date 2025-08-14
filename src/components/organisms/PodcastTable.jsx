@@ -8,8 +8,7 @@ export default function PodcastTable({ podcasts, onDelete }) {
         <thead className="bg-dark/50 text-main text-left">
           <tr>
             <th className="p-3">Title</th>
-            <th className="p-3">Category</th>
-            <th className="p-3">Image</th>
+            <th className="p-3">Id</th>
             <th className="p-3">Actions</th>
           </tr>
         </thead>
